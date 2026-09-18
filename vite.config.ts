@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import path from 'path';
+import fs from 'fs';
 
 export default defineConfig({
   resolve: {
@@ -14,7 +15,6 @@ export default defineConfig({
       load(id) {
         if (!id.endsWith('.html?raw')) return;
 
-        const fs      = require('fs');
         const cleanId = id.split('?')[0];
         let code      = fs.readFileSync(cleanId, 'utf-8');
 

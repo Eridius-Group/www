@@ -77,11 +77,11 @@ jobs:
 
       - name: Generate JSON Hashes and Signatures for Dist
         run: |
-          cat << 'EOF' > generate-hashes.js
-          const fs = require('fs');
-          const path = require('path');
-          const crypto = require('crypto');
-          const { execSync } = require('child_process');
+          cat << 'EOF' > generate-hashes.mjs
+          import fs from 'fs';
+          import path from 'path';
+          import crypto from 'crypto';
+          import { execSync } from 'child_process';
 
           const distPath = path.join(process.cwd(), 'dist');
           const outputPath = path.join(process.cwd(), 'dist-hashes.json');
@@ -98,11 +98,11 @@ jobs:
                 const relPath = path.relative(distPath, fullPath).replace(/\\/g, '/');
                 const content = fs.readFileSync(fullPath);
                 const hash = crypto.createHash('sha512').update(content).digest('hex');
-
+                
                 fs.writeFileSync('hash.txt', hash);
                 execSync('gpg --batch --yes --detach-sign --armor --output hash.sig hash.txt');
                 const signature = fs.readFileSync('hash.sig', 'utf8');
-
+                
                 result[relPath] = { hash, signature };
               }
             }
@@ -111,8 +111,8 @@ jobs:
           walk(distPath);
           fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
           EOF
-          node generate-hashes.js
-          rm generate-hashes.js hash.txt hash.sig
+          node generate-hashes.mjs
+          rm generate-hashes.mjs hash.txt hash.sig
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
