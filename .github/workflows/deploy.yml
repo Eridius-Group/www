@@ -100,8 +100,8 @@ jobs:
                 const hash = crypto.createHash('sha512').update(content).digest('hex');
                 
                 fs.writeFileSync('hash.txt', hash);
-                execSync('gpg --batch --yes --detach-sign --armor --output hash.sig hash.txt');
-                const signature = fs.readFileSync('hash.sig', 'utf8');
+                execSync('gpg --batch --yes --detach-sign --output hash.sig hash.txt');
+                const signature = fs.readFileSync('hash.sig').toString('base64');
                 
                 result[relPath] = { hash, signature };
               }
