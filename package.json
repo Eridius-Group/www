@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "optimize-media": "node scripts/optimize-media.mjs",
     "dev": "vite build --watch",
@@ -16,7 +17,6 @@
   "keywords": [],
   "author": "Eridius Group LLC",
   "license": "MIT",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Eridius-Group/www/issues"
   },

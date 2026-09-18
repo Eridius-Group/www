@@ -4,7 +4,7 @@ import path from 'path';
 export default defineConfig({
   resolve: {
     alias: {
-      '@lib': path.resolve(__dirname, './lib'),
+      '@lib': path.resolve(import.meta.dirname, './lib'),
     },
   },
   plugins: [
