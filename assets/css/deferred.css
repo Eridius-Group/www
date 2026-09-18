@@ -1,0 +1,36 @@
+/* Fonts are now deferred via defer-styles.ts */
+body {
+    font-family:
+        Public Sans Variable,
+        Arial,
+        Helvetica,
+        sans;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(136, 136, 136, 0.3) transparent;
+}
+
+
+
+.fa {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    position: relative;
+    margin-right: 0.5em;
+    top: -0.1rem;
+}
+
+.circle-check {
+    content: "";
+    background-image: url("/assets/images/circle-check-regular-full.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.ul {
+    text-decoration: underline;
+}

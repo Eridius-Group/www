@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --bg-main: #012422;
+    --bg-article: #02504c;
+    --text-main: #f3f5f7;
+
+    /* Base Typography & Spacing */
+    --font-base: 14px;
+    --spacing-xs: 0.3rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+
+    /* Layout (Desktop First: > 1200px) */
+    --section-padding: 16vw;
+    --content-inset: 7rem;
+    --article-padding: 2rem;
+    --grid-columns: 4;
+    --grid-gap: 1rem;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-size: var(--font-base);
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
+main {
+    margin: var(--content-inset);
+}
+
+
+
+h1,
+h2,
+h3,
+p,
+sub,
+ul,
+li {
+    padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm)
+        var(--spacing-md);
+    margin: 0;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+
+
+.gap {
+    display: flex;
+    gap: 1rem;
+}
+
+.hidden {
+    display: none !important;
+}

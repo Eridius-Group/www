@@ -1,0 +1,137 @@
+name: Build, Release, and Deploy
+
+on:
+  push:
+    branches:
+      - unstable
+      - main
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  build-release-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm ci || npm install
+
+      - name: Build and Minify
+        run: npm run build
+
+      - name: Setup GPG Signing Key
+        run: |
+          if [ -z "${{ secrets.GPG_PRIVATE_KEY }}" ]; then
+            echo "No GPG_PRIVATE_KEY secret found. Generating a temporary ephemeral key for signing..."
+            cat > gen-key-script <<EOF
+          %echo Generating a basic OpenPGP key
+          Key-Type: default
+          Subkey-Type: default
+          Name-Real: Eridius Build Service - Github
+          Name-Email: ebs-github@eridius.local
+          Expire-Date: 0
+          %no-protection
+          %commit
+          %echo done
+          EOF
+            gpg --batch --generate-key gen-key-script
+          else
+            echo "Importing provided GPG_PRIVATE_KEY..."
+            echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
+          fi
+
+      - name: Package and Sign Source Code
+        run: |
+          git archive -o source.zip HEAD
+          gpg --batch --yes --detach-sign --armor source.zip
+
+      - name: Package and Sign JS Bundles
+        run: |
+          mkdir js-bundles-staging
+          # Copy all JS files from the built output
+          find dist -type f -name "*.js" -exec cp {} js-bundles-staging/ \;
+
+          cd js-bundles-staging
+          for file in *.js; do
+            if [ -f "$file" ]; then
+              # Generate SHA-512 hash
+              sha512sum "$file" > "$file.sha512"
+              # Sign the hash
+              gpg --batch --yes --detach-sign --armor --output "$file.sha512.sig" "$file.sha512"
+            fi
+          done
+
+          # Bundle them all together
+          zip -r ../js-bundles.zip .
+          cd ..
+
+      - name: Generate JSON Hashes and Signatures for Dist
+        run: |
+          cat << 'EOF' > generate-hashes.js
+          const fs = require('fs');
+          const path = require('path');
+          const crypto = require('crypto');
+          const { execSync } = require('child_process');
+
+          const distPath = path.join(process.cwd(), 'dist');
+          const outputPath = path.join(process.cwd(), 'dist-hashes.json');
+
+          const result = {};
+
+          function walk(dir) {
+            const files = fs.readdirSync(dir);
+            for (const file of files) {
+              const fullPath = path.join(dir, file);
+              if (fs.statSync(fullPath).isDirectory()) {
+                walk(fullPath);
+              } else {
+                const relPath = path.relative(distPath, fullPath).replace(/\\/g, '/');
+                const content = fs.readFileSync(fullPath);
+                const hash = crypto.createHash('sha512').update(content).digest('hex');
+
+                fs.writeFileSync('hash.txt', hash);
+                execSync('gpg --batch --yes --detach-sign --armor --output hash.sig hash.txt');
+                const signature = fs.readFileSync('hash.sig', 'utf8');
+
+                result[relPath] = { hash, signature };
+              }
+            }
+          }
+
+          walk(distPath);
+          fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
+          EOF
+          node generate-hashes.js
+          rm generate-hashes.js hash.txt hash.sig
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: release-${{ github.sha }}
+          name: Auto-Release ${{ github.sha }}
+          files: |
+            source.zip
+            source.zip.asc
+            js-bundles.zip
+            dist-hashes.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: publicsite
+          directory: dist
+          branch: unstable

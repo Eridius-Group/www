@@ -1,0 +1,277 @@
+<section>
+    <h2>What we do.</h2>
+    <div class="grid">
+        <article>
+            <h3>Advocate for your rights</h3>
+            <p>
+                We promote the right to privacy everywhere we can. We don't just
+                claim to care about your privacy - we're ready to defend it. We
+                are prepared to spread the word far and wide that the average
+                consumer, who is aware of their privacy being violated, is not
+                okay with it.
+            </p>
+        </article>
+        <article>
+            <h3>Educate the public</h3>
+            <p>
+                We hold online and in-person classes for computer literacy,
+                privacy and security baseline standards, and privacy rights -
+                educating America's youth and elderly alike on what to look out
+                for, so they aren't taken advantage of by scammers and malicious
+                software.
+            </p>
+        </article>
+        <article>
+            <h3>Provide public recommendations</h3>
+            <p>
+                We will recommend products to consumers based on our standards
+                and ettiquete, frequently partnering with providers to give you
+                deals and promotions. We only recommend software we wholly trust
+                and use personally - not just whoever pays the highest dollar.
+            </p>
+        </article>
+    </div>
+</section>
+<section>
+    <h2>Latest Blog Posts</h2>
+    <div id="homeBlogList" class="grid">
+        <article><p>Loading...</p></article>
+    </div>
+</section>
+<section>
+    <h2>Key Projects</h2>
+    <div class="grid">
+        <article>
+            <h3>Codychat Chat Utilities</h3>
+            <p>
+                <strong>Codychat Chat Utilities (CCUtils)</strong>
+                is a dedicated browser extension designed to help reduce
+                offensive, inappropriate, and unwanted content in Codychat
+                online chatrooms.
+            </p>
+            <p>
+                By offering a robust suite of customizable settings, tweaks, and
+                content filters, CCUtils streamlines the chat experience. It
+                provides quicker, more efficient ways to manage platform
+                features and handle various types of content, empowering both
+                moderators
+                <strong>and</strong> everyday users to take control of their
+                environment.
+            </p>
+            <p><a href="/legal/privacy/codychat-utils" data-navigo>Privacy</a></p>
+        </article>
+    </div>
+</section>
+<section>
+    <h2>Who we are.</h2>
+    <p>
+        Eridius Group is led by a team of three passionate founders dedicated to
+        digital privacy. We operate under pseudonyms to protect our public
+        identities - and that philosophy extends directly to you. The same
+        rigorous security measures we take to safeguard our own information are
+        the exact steps we use to protect yours.
+    </p>
+    <div class="grid">
+        <article>
+            <h3>Astrum</h3>
+            <p>
+                Based in the Midwest, Astrum is a charismatic designer and
+                creative visionary. As our lead for public media outreach,
+                marketing, brand strategy, and project planning, Astrum is the
+                driving force behind our public presence. If you've engaged with
+                our social media or digital content, you've experienced Astrum's
+                creative work firsthand.
+            </p>
+        </article>
+
+        <article>
+            <h3>Ezra</h3>
+            <p>
+                Also located in the Midwest, Ezra serves as a core Software
+                Engineer and Business Manager. Holding multiple cybersecurity
+                certifications from industry leaders like Certiport, Ezra brings
+                a robust IT background spanning both the retail and education
+                sectors. Ezra leverages this technical expertise to architect
+                and develop the custom internal programs that power operations
+                at Eridius Group.
+            </p>
+        </article>
+
+        <article>
+            <h3>Shelter</h3>
+            <p>
+                Rounding out our Midwest team is Shelter - a dedicated privacy
+                advocate, musician, and artist. Beyond producing music and
+                digital art, he is a passionate voice for human rights, mental
+                health awareness, and online data privacy. Taking a firm stance
+                against mass data collection and AI-centric data scraping,
+                Shelter plays a crucial role in our design process. He acts as
+                the essential bridge between cutting-edge security architecture
+                and accessible, user-friendly solutions that consumers can
+                easily navigate.
+            </p>
+        </article>
+    </div>
+</section>
+<section>
+    <h2>Our Technology Stack</h2>
+    <p>
+        We have built our technology ecosystem from the ground up, combining
+        reliable industry standards with our own custom-engineered solutions to
+        deliver peak performance and efficiency.
+    </p>
+
+    <article class="full">
+        <h3>On-Site Server Hardware</h3>
+        <p>
+            At the heart of our operations is "Root," our custom on-site server
+            infrastructure powered by a Kubernetes cluster of Single Board
+            Computers (SBCs). Our current setup features Orange Pi 6 Plus nodes,
+            each equipped with 32GB of RAM. These highly efficient nodes draw
+            roughly 30 watts at baseline and peak at 60 watts under heavy load
+            <small><a href="">(source)</a></small
+            >. To expand our capabilities, we are integrating Radxa Orion boards
+            and Radxa Fogwise AIrbox Q900 units, both of which operate within an
+            energy-efficient 65-watt limit
+            <a href="https://radxa.com/products/fogwise/airbox-q900#techspec"
+                >(Radxa AIrbox Q900 specs)</a
+            >
+            and
+            <a href="https://radxa.com/products/orion/o6n#techspec"
+                >(Radxa Orion O6N specs)</a
+            >.
+        </p>
+
+        <p>
+            For our AI-based workloads—specifically targeted tasks like code
+            auditing, content classification, and practical quality-of-life
+            tools—we utilize the Radxa Fogwise AIrbox Q900, which is
+            purpose-built for specialized AI processes. We are committed to
+            focused and sustainable computing, and we do not intend to train
+            Large Language Models (LLMs) or generative AI on our Root
+            infrastructure.
+        </p>
+
+        <p>
+            All other workloads are seamlessly balanced across our Radxa Orion
+            O6N and Orange Pi 6 Plus boards. To ensure fast data access and
+            redundancy, these nodes are equipped with dual Gen4 NVMe SSDs
+            configured in a RAID array. We also prioritize absolute uptime; in
+            the event of a primary network outage, a dedicated Radxa Orion O6N
+            equipped with a 5G network card provides automatic failsafe internet
+            access.
+        </p>
+
+        <p>
+            Our network backbone is just as robust. We rely on the Palmshell
+            NeXT H2 to manage our dual 5G and fiber-optic connections, serving
+            simultaneously as our firewall, router, and core security appliance.
+            Everything is tied together using an HP network switch equipped with
+            QSFP+ ports. We currently use adapters to step down to RJ45,
+            ensuring our network is completely future-proofed and ready for
+            native QSFP+ expansion when the time comes.
+        </p>
+        <ul>
+            <li>
+                <a href="https://sbc.compare/91-orange-pi-6-plus-32gb"
+                    >Orange Pi 6 Plus (32GB) Benchmarks</a
+                >
+            </li>
+            <li>
+                <a
+                    href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-6-Plus.html"
+                    >Orange Pi 6 Plus (32GB) Tech Specification</a
+                >
+            </li>
+            <li>
+                <a href="https://sbc.compare/97-radxa-fogwise-airbox-q900-36gb"
+                    >Raxda Fogwise AIrbox Q900 (36GB) Benchmarks</a
+                >
+            </li>
+            <li>
+                <a
+                    href="https://radxa.com/products/fogwise/airbox-q900#techspec"
+                    >Raxda Fogwise AIrbox Q900 (36GB) Tech Specification</a
+                >
+            </li>
+            <li>
+                <a href="https://sbc.compare/101-radxa-orion-o6n-32gb"
+                    >Raxda Orion O6N (32GB) Benchmarks</a
+                >
+            </li>
+            <li>
+                <a href="https://radxa.com/products/orion/o6n#techspec"
+                    >Raxda Orion O6N (32GB) Tech Specification</a
+                >
+            </li>
+            <li>
+                <a href="https://palmshell.io/next-h2#techspec"
+                    >Palmshell NeXT H2 Tech Specification</a
+                >
+            </li>
+        </ul>
+    </article>
+    <article class="full">
+        <h3>Server Software</h3>
+        <p>
+            To power our infrastructure, we developed
+            <strong>CoreK30s</strong> - a custom, open-source Linux distribution
+            tailored specifically for Kubernetes. Designed with a minimal
+            footprint similar to Alpine Linux, it applies
+            <code>hardened-linux</code> patches to the latest kernel and relies
+            only on essential modules to operate securely.
+        </p>
+
+        <ul>
+            <li>
+                <strong>FIPS-Ready Architecture:</strong> Compiled to meet FIPS
+                compliance standards out of the box, laying the groundwork for
+                future official certification.
+            </li>
+            <li>
+                <strong>Strict Access Controls:</strong> Fortified with SELinux
+                in enforcing mode, restricted root-level permissions, and
+                custom, limited-scope commands that replace standard
+                <code>sudo</code>.
+            </li>
+            <li>
+                <strong>Immutable Infrastructure:</strong> Employs read-only
+                filesystem mounts to thwart unauthorized modifications. Crucial
+                settings (like LDAP syncing, S3 credentials, and SSH
+                requirements), the bootloader, and kernel modules are
+                permanently locked post-configuration.
+            </li>
+            <li>
+                <strong>Secure Boot &amp; Encryption:</strong> Unlocking the
+                encrypted disks during boot requires a cryptographic handshake
+                using both a TPM and a network confirmation server.
+            </li>
+            <li>
+                <strong>Centralized Authentication:</strong> Users are managed
+                with LDAP via PAM, ensuring all nodes perfectly sync active
+                usernames, SSH keys, and hardware TOTP requirements.
+            </li>
+            <li>
+                <strong>Automated Auditing:</strong> Built-in audit logging
+                tools feature a daemon that automatically uploads system logs to
+                S3 storage daily at midnight UTC.
+            </li>
+            <li>
+                <strong>Seamless Updates:</strong> System updates follow a
+                resilient A/B partition pattern, allowing for frequent live
+                patching via remounts without disrupting operations.
+            </li>
+            <li>
+                <strong>Flexible Build Process:</strong> Engineered to be
+                compiled from scratch for ultimate security. We also offer
+                pre-compiled drop-in sources to speed up the build process,
+                though the final ISO still requires node-specific configuration.
+            </li>
+        </ul>
+
+        <p>
+            We are actively refining CoreK30s and plan to release the full
+            source code publicly in the near future.
+        </p>
+    </article>
+</section>

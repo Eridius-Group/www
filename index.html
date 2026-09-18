@@ -1,56 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src https:" />
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
-    <meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'" />
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self' http://localhost http://127.0.0.1 https:; require-trusted-types-for 'script'"
+        />
+        <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
 
-    <meta name="author" content="The Eridius Authors" />
-    <meta name="creator" content="Eridius Group LLC" />
-    <meta name="copyright" content="Eridius Group LLC">
-    <meta name="contact" content="support@eridi.us" />
-    <meta name="license" content="AGPL 3.0" />
-    <meta name="rights-standard" content="cc by-nd" />
+        <meta name="author" content="The Eridius Authors" />
+        <meta name="creator" content="Eridius Group LLC" />
+        <meta name="copyright" content="Eridius Group LLC" />
+        <meta name="contact" content="support@eridi.us" />
+        <meta name="license" content="AGPL 3.0" />
+        <meta name="rights-standard" content="cc by-nd" />
 
-    <meta name="nonfiction" content="true" />
+        <meta name="nonfiction" content="true" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="robots" content="all" />
-    <meta name="application-name" content="Eridius Group" lang="en" />
-    <meta name="application-url" content="https://eridiusgroup.com" />
-    <meta name="theme-color" content="#427f82" media="(prefers-color-scheme: dark)" />
-    <meta name="bitcoin" content="bc1q5hwx6ev5zjanc756u4q89qgtvaj0hd8w0kn8ks">
-	<meta name="norton-safeweb-site-verification" content="CBGUEBYVRKRACBD1-EAYM18GNQNQ7ICUYMJ0UQS3EJWCSJCET0NQB-D-AN2ULN41AQSN22-Q63BDGP2GYYW6MHMNZU5QHD0X7CMBFILT74ML2UI4I5JH2YWHRXSS7M8H" />
-	<meta name="wot-verification" content="06ca25f113f4b370ecba"/>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+        />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="color-scheme" content="dark" />
+        <meta name="robots" content="all" />
+        <meta name="application-name" content="Eridius Group" lang="en" />
+        <meta name="application-url" content="https://eridiusgroup.com" />
+        <meta
+            name="theme-color"
+            content="#427f82"
+            media="(prefers-color-scheme: dark)"
+        />
+        <meta
+            name="bitcoin"
+            content="bc1q5hwx6ev5zjanc756u4q89qgtvaj0hd8w0kn8ks"
+        />
+        <meta
+            name="norton-safeweb-site-verification"
+            content="CBGUEBYVRKRACBD1-EAYM18GNQNQ7ICUYMJ0UQS3EJWCSJCET0NQB-D-AN2ULN41AQSN22-Q63BDGP2GYYW6MHMNZU5QHD0X7CMBFILT74ML2UI4I5JH2YWHRXSS7M8H"
+        />
+        <meta name="wot-verification" content="06ca25f113f4b370ecba" />
 
-    <title>Home | Eridius Group </title>
-    <meta name="description" content="We aim to educate the masses on privacy and security and offer them services to help them stay safe online.">
+        <title>Eridius Group</title>
+        <meta
+            name="description"
+            content="We aim to educate the masses on privacy and security and offer them services to help them stay safe online."
+        />
 
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/fontsource/fonts/public-sans:vf@5.2.7/latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/deferred.css" as="style" type="text/css">
-	<link rel="stylesheet" href="/style.css" type="text/css" />
-    <link rel="stylesheet" href="/deferred.css" type="text/css" />
-    <link rel="canonical" href="https://eridiusgroup.com" />
-</head>
-<body>
-    <main>
-        <section>
-	        <img src="/logo.webp" alt="Eridius Logo" height="128px" width="128px">
-		    <h1>Welcome to Eridius Group.</h1>
-		    <h2>We aim to educate the masses on privacy and security standards, the methods bad actors may use to gain information about you to sell, and offer you services to help you stay safe.</h2>
-		    <p><i class="fa-regular fa-circle-check"></i> It's dangerous to go alone. Take us with you.</p>
-        </section>
-    </main>
-    <footer>
-        <nav>
-            <a href="https://www.paypal.com/ncp/payment/CQPXM7HUPMXRA">Contribute</a>
-            <a href="mailto:support@eridi.us">Contact Us</a>
-        </nav>
-    </footer>
-</body>
+        <link
+            rel="stylesheet"
+            href="/assets/css/deferred.css"
+            media="print"
+            id="deferred-styles"
+        />
+        <noscript
+            ><link rel="stylesheet" href="/assets/css/deferred.css"
+        /></noscript>
+        <script type="module" src="/lib/defer-styles.ts" defer></script>
+
+        <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+        <link
+            rel="stylesheet"
+            href="/assets/css/breakpoints.css"
+            type="text/css"
+        />
+
+        <link rel="canonical" href="https://eridiusgroup.com" />
+        <script type="module" src="/lib/helper.ts"></script>
+        <script type="module" src="/lib/routing.ts"></script>
+    </head>
+    <body>
+    </body>
 </html>

@@ -1,0 +1,59 @@
+/* =========================================
+   Responsive Breakpoints
+   Default (Desktop) variables are in main.css
+   ========================================= */
+
+/* Large Desktop (max-width: 1400px) */
+@media screen and (max-width: 1400px) {
+    :root {
+        --section-padding: 14vw;
+        --content-inset: 6rem;
+    }
+}
+
+/* Small Laptops (max-width: 1200px) */
+@media screen and (max-width: 1200px) {
+    :root {
+        --section-padding: 10vw;
+        --content-inset: 5rem;
+        --grid-columns: 3;
+    }
+}
+
+/* Landscape Tablets (max-width: 992px) */
+@media screen and (max-width: 992px) {
+    :root {
+        --section-padding: 8vw;
+        --content-inset: 4rem;
+        --article-padding: 1.75rem;
+    }
+}
+
+/* Portrait Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    :root {
+        --section-padding: 5vw;
+        --content-inset: 2rem;
+        --article-padding: 1.5rem;
+        --grid-columns: 2;
+    }
+}
+
+/* Large Mobile Devices (max-width: 576px) */
+@media screen and (max-width: 576px) {
+    :root {
+        --section-padding: 2rem;
+        --content-inset: 1rem;
+        --article-padding: 1rem;
+        --grid-columns: 1;
+    }
+}
+
+/* Small Mobile Devices (max-width: 400px) */
+@media screen and (max-width: 400px) {
+    :root {
+        --section-padding: 1rem;
+        --content-inset: 0.5rem;
+        --article-padding: 0.75rem;
+    }
+}

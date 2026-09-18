@@ -1,0 +1,7 @@
+#app {
+    margin: 0 var(--content-inset) var(--content-inset);
+}
+
+#appHeader {
+    height: var(--content-inset);
+}
